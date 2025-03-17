@@ -11,8 +11,6 @@ void error(string word1, string word2, string msg)
     return;
 }
 
-4
-
 bool is_adjacent(const string& word1, const string& word2)
 {
     return(edit_distance_within(word1, word2, 1));
@@ -115,15 +113,26 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
 
 void load_words(set<string> & word_list, const string& file_name)
 {
-
+    string words;
+    while(infile >> words)
+    {
+        for(char& c : words)
+        {
+            c = std::to_lower(c);
+        }
+        word_list.insert(c);
+    }
+    infile.close();
 }
 
 void print_word_ladder(const vector<string>& ladder)
 {
-
+    if(ladder.empty())
+    {
+        return;
+    }
 }
 
 void verify_word_ladder()
 {
-
 }
