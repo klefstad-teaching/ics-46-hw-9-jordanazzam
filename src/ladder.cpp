@@ -80,13 +80,13 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
 vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const set<string>& word_list)
 {
     queue<vector<string>> ladder_queue;
-    ladder_queue.push([begin_word]);
+    ladder_queue.push({begin_word});
     set<string> visited;
     visited.insert(begin_word);
-    while(!ladder_qeueu.empty())
+    while(!ladder_queue.empty())
     {
         vector<string> ladder = ladder_queue.front();
-        ladduer_queue.pop()
+        ladder_queue.pop()
         string last_word = ladder.back();
         for(string &word : word_list)
         {
@@ -104,7 +104,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
                 }
             }
         }
-        return std::cerr << "error no ladder found" << endl; 
+        return {}; 
     }
 
 
