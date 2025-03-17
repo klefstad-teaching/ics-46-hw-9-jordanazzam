@@ -1,6 +1,10 @@
 #include "dijkstras.h"
 #include <climits>
-
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <limits> 
+#include <algorithm>
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous)
 {
@@ -23,33 +27,33 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
         {
             int v = neighbor.vertex;
             int weight = neighbor.weight;
-            if(!visited[u] && distance[v] + weight < distance[v])
+            if(!visited[v] && distance[u] + weight < distance[v])
             {
                 distance[v] = distance[u] + weight;
                 previous[v] = u;
-                pq.push(Node(v, distance[v]))
+                pq.push({distance[v], v});
             }
         }
-        return distance;
     }
+    return distance;
 }
 
 vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination)
 {
     vector<int>shortest_path;
-    if(distance < 0 || distance > int(distances.size()))
+    if(distance < 0 || distance >= int(distances.size()))
     {
         return shortest_path;
     }
-    else if(distance[destination] == INT_MAX)
+    else if(distances[destination] == INT_MAX)
     {
         return shortest_path;
     }
     for(int i = destination; i != -1; i = previous[i])
     {
-        shortest_path.push_back[i];
+        shortest_path.push_back(i);
     }
-    reverse(shortest_path.begin(), path.end());
+    reverse(shortest_path.begin(), shortest_path.end());
     return shortest_path;
 }
 
