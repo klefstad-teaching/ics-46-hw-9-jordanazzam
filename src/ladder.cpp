@@ -4,16 +4,13 @@
 #include <vector>
 #include <string>
 #include <set>
+#include <fstream>
+#include <cctype>
 
 void error(string word1, string word2, string msg)
 {
     std::cerr << "an error has occured"  << msg << "word1: " << word1 << "word2: " << word2 << std::endl;
     return;
-}
-
-bool is_adjacent(const string& word1, const string& word2)
-{
-    return(edit_distance_within(word1, word2, 1));
 }
 
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d)
@@ -77,6 +74,12 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
     return false;  
 }
 
+bool is_adjacent(const string& word1, const string& word2)
+{
+    return(edit_distance_within(word1, word2, 1));
+}
+
+
 vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const set<string>& word_list)
 {
     queue<vector<string>> ladder_queue;
@@ -104,11 +107,8 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
                 }
             }
         }
-        return {}; 
     }
-
-
-
+    return {}; 
 }
 
 void load_words(set<string> & word_list, const string& file_name)
@@ -118,7 +118,7 @@ void load_words(set<string> & word_list, const string& file_name)
     {
         for(char& c : words)
         {
-            c = std::to_lower(c);
+            c = std::tolower(c);
         }
         word_list.insert(c);
     }
