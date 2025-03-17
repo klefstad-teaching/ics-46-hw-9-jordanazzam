@@ -20,7 +20,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     {
         std::pair <int, int> current = pq.top();
         pq.pop();
-        int u = current.vertex;
+        int u = current.second;
         if (visited[u]) continue;
         visited[u] = true;
         for (auto& neighbor : G.adjacency_list[u])
@@ -38,10 +38,10 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     return distance;
 }
 
-vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination)
+vector<int> extract_shortest_path(const vector<int>& distances, const vector<int>& previous, int destination)
 {
     vector<int>shortest_path;
-    if(distance < 0 || distance >= int(distances.size()))
+    if(destination < 0 || destination >= int(distances.size()))
     {
         return shortest_path;
     }
