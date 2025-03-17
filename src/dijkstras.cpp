@@ -23,7 +23,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
         int u = current.second;
         if (visited[u]) continue;
         visited[u] = true;
-        for (auto& neighbor : G.adjacency_list[u])
+        for (const auto& neighbor : G.adjacency_list[u])
         {
             int v = neighbor.vertex;
             int weight = neighbor.weight;
@@ -61,7 +61,7 @@ void print_path(const vector<int>& v, int total)
 {
     if (v.empty())
     {
-        std::cout << "No path found" << std::endl;
+        std::cout << "\nTotal cost is " << total << "\n";
         return;
     }
     else
