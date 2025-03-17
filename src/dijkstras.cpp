@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <limits> 
+#include <limits>
 #include <algorithm>
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous)
@@ -23,10 +23,12 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
         int u = current.second;
         if (visited[u]) continue;
         visited[u] = true;
+        if (u < 0 || u >= n) continue;
         for (const auto& neighbor : G.adjacency_list[u])
         {
             int v = neighbor.vertex;
             int weight = neighbor.weight;
+            if (v < 0 || v >= n) continue;
             if(!visited[v] && distance[u] + weight < distance[v])
             {
                 distance[v] = distance[u] + weight;
