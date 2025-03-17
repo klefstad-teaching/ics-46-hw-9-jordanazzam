@@ -25,8 +25,19 @@ struct Edge {
     }
 };
 
+
+struct Node
+{
+    int vertex;
+    int weight;
+};
+
 struct Graph : public vector<vector<Edge>> {
     int numVertices=0;
+    vector<vector<Node>> adjacency_list;
+    vector<int> distance;
+    vector<int> previous;
+    vector<bool> visited;
 };
 
 inline istream& operator>>(istream& in, Graph& G) {

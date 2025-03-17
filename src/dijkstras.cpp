@@ -2,21 +2,6 @@
 #include <climits>
 
 
-struct Node
-{
-    int vertex;
-    int weight;
-};
-
-struct Graph
-{
-    vector<vector<Node>> adjacency_list;
-    vector<int> distance;
-    vector<int> previous;
-    vector<bool> visited;
-};
-
-
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous)
 {
     int n = G.adjacency_list.size();
