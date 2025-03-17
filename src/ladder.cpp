@@ -121,7 +121,7 @@ void load_words(set<string> & word_list, const string& file_name)
         {
             c = std::tolower(c);
         }
-        word_list.insert(word);
+        word_list.insert(words);
     }
     infile.close();
 }
