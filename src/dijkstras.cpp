@@ -62,6 +62,7 @@ void print_path(const vector<int>& v, int total)
     if (v.empty())
     {
         std::cout << "No path found" << std::endl;
+        return;
     }
     else
     {
