@@ -113,6 +113,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
 
 void load_words(set<string> & word_list, const string& file_name)
 {
+    std::ifstream infile(file_name);
     string words;
     while(infile >> words)
     {
@@ -120,7 +121,7 @@ void load_words(set<string> & word_list, const string& file_name)
         {
             c = std::tolower(c);
         }
-        word_list.insert(c);
+        word_list.insert(word);
     }
     infile.close();
 }
