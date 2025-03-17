@@ -1,11 +1,28 @@
 #include "dijkstras.h"
 #include <climits>
+
+
+struct Node
+{
+    int vertex;
+    int weight;
+};
+
+struct Graph
+{
+    vector<vector<Node>> adjacencyList;
+    vector<int> distance;
+    vector<int> previous;
+    vector<bool> visited;
+};
+
+
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous)
 {
     int n = G.adjacency_list.size();
-    std::vector<int>distance(n, INT_MAX);
+    vector<int>distance(n, INT_MAX);
     previous.resize(n, -1);
-    std::vector<bool> visited(n, false);
+    vector<bool> visited(n, false);
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({0, source});
     distance[source] = 0;

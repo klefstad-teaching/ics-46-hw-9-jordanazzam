@@ -86,7 +86,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
     while(!ladder_queue.empty())
     {
         vector<string> ladder = ladder_queue.front();
-        ladder_queue.pop()
+        ladder_queue.pop();
         string last_word = ladder.back();
         for(string &word : word_list)
         {
