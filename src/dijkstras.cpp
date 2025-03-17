@@ -18,7 +18,7 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 
     while(!pq.empty())
     {
-        int current = pq.top();
+        std::pair <int, int> current = pq.top();
         pq.pop();
         int u = current.vertex;
         if (visited[u]) continue;
