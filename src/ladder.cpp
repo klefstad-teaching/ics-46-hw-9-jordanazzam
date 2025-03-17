@@ -7,7 +7,7 @@
 
 void error(string word1, string word2, string msg)
 {
-    std::cerr << "an error has occured"  << msg << std::endl;
+    std::cerr << "an error has occured"  << msg << "word1: " << word1 << "word2: " << word2 << std::endl;
     return;
 }
 
