@@ -10,7 +10,7 @@ struct Node
 
 struct Graph
 {
-    vector<vector<Node>> adjacencyList;
+    vector<vector<Node>> adjacency_list;
     vector<int> distance;
     vector<int> previous;
     vector<bool> visited;
